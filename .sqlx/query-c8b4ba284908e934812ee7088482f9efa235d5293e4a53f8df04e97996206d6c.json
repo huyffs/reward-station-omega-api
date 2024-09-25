@@ -1,0 +1,26 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE engage\n    SET\n      updated_at = NOW(),\n      accepted = accepted || $1\n    WHERE org_id = $2\n      AND campaign_id = $3\n      AND chain_id = $4\n      AND signer_address = $5\n    RETURNING\n      updated_at AS \"updated_at!\"",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "updated_at!",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Jsonb",
+        "Uuid",
+        "Uuid",
+        "Int8",
+        "Text"
+      ]
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "c8b4ba284908e934812ee7088482f9efa235d5293e4a53f8df04e97996206d6c"
+}

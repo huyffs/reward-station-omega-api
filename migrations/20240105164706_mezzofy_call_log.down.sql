@@ -1,0 +1,1 @@
+DROP TABLE mezzofy_call_log

@@ -1,0 +1,46 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      name,\n      logo,\n      admins AS \"admins: Json<HashMap<String, i64>>\",\n      created_at,\n      updated_at\n    FROM org\n    WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 1,
+        "name": "logo",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "admins: Json<HashMap<String, i64>>",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 3,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 4,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      false,
+      false,
+      true
+    ]
+  },
+  "hash": "becd76709b84543eadaa8a1080ef2dff60ef643cd1e9dacf950b0d8a7d75a35c"
+}

@@ -1,0 +1,24 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO voucher (\n                org_id,\n                project_id,\n                campaign_id,\n                chain_id,\n                signer_address,\n                user_id,\n                task_id,\n                value,\n                balance,\n                valid_from,\n                valid_until,\n                created_at\n              ) VALUES (\n                $1,\n                $2,\n                $3,\n                $4,\n                $5,\n                $6,\n                $7,\n                $8,\n                $9,\n                $10,\n                $11,\n                NOW()\n              )",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Uuid",
+        "Int8",
+        "Text",
+        "Text",
+        "Text",
+        "Int8",
+        "Int8",
+        "Date",
+        "Date"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "b1ed4d651343688182bde66a8b6b7805f51292ed06a27a7a1f64b8091e4e5bcb"
+}

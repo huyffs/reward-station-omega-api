@@ -1,0 +1,23 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      SUM(balance)::BIGINT\n    FROM voucher\n    WHERE campaign_id = $1\n      AND user_id = $2\n      AND valid_from <= NOW()\n      AND (valid_until IS NULL OR valid_until >= NOW())\n      ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "sum",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text"
+      ]
+    },
+    "nullable": [
+      null
+    ]
+  },
+  "hash": "31231d163eb6f76fe3758277f9864beea59c044b90a4d59a6b2da72fa7833efa"
+}

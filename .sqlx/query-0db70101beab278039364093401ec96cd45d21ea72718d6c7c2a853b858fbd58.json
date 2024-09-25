@@ -1,0 +1,17 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE\n              FROM voucher \n              WHERE campaign_id = $1\n                AND chain_id = $2\n                AND signer_address = $3\n                AND task_id = $4",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Int8",
+        "Text",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "0db70101beab278039364093401ec96cd45d21ea72718d6c7c2a853b858fbd58"
+}

@@ -1,0 +1,22 @@
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
+
+image: "rust:latest"
+
+before_script:
+  - apt-get update -yqq
+  - apt-get install -yqq --no-install-recommends build-essential pkg-config
+
+build:
+  stage: build
+  image: rust
+  script:
+    - cargo build --release
+  artifacts:
+    paths:
+      - target/release/rs-api
+  only:
+    - main
+    - develop

@@ -1,0 +1,112 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      org_id,\n      project_id,\n      id,\n      name,\n      logo,\n      images,\n      description,\n      chain_id,\n      contract_address,\n      condition_info,\n      reward_info,\n      tasks AS \"tasks: Json<Vec<Task>>\",\n      start_at,\n      end_at,\n      created_at,\n      updated_at\n    FROM campaign\n    WHERE id = $1\n      AND start_at <= NOW()\n      AND (end_at IS NULL OR end_at >= NOW())\n    ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "org_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "project_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 3,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "logo",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "images",
+        "type_info": "TextArray"
+      },
+      {
+        "ordinal": 6,
+        "name": "description",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "chain_id",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 8,
+        "name": "contract_address",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 9,
+        "name": "condition_info",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 10,
+        "name": "reward_info",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 11,
+        "name": "tasks: Json<Vec<Task>>",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 12,
+        "name": "start_at",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 13,
+        "name": "end_at",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 14,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 15,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  "hash": "35c91c536538fec1d5fa4ecfc58189ce2a8980e99186cb9dee9dd1124eabe182"
+}

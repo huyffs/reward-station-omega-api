@@ -1,0 +1,35 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      point,\n      max_mint,\n      user_mint\n    FROM campaign__reward\n    WHERE campaign_id = $1\n      AND reward_id = $2\n      AND active = true\n      AND approved = true\n      AND point IS NOT NULL\n      AND (max_mint IS NULL\n        OR max_mint = 0\n        OR (\n          SELECT COUNT(user_id)\n          FROM coupon\n          WHERE reward_id = $2\n        ) < max_mint)\n      ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "point",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 1,
+        "name": "max_mint",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "user_mint",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "11f8dee26a131f1020354a278bbd4e396c323c514063615fa0ba56c64a9522af"
+}

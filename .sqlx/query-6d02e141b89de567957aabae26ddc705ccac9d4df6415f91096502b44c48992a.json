@@ -1,0 +1,15 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO project__user (\n      project_id,\n      user_id,\n      subscribed\n    )\n    VALUES ($1, $2, true)\n    ON CONFLICT(project_id, user_id) \n    DO UPDATE SET\n      subscribed = true",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "6d02e141b89de567957aabae26ddc705ccac9d4df6415f91096502b44c48992a"
+}

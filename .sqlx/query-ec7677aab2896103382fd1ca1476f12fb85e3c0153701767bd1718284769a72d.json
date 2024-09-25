@@ -1,0 +1,40 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n    reward_id,\n    number,\n    url,\n    created_at\n  FROM coupon\n  WHERE user_id IS NULL\n    AND minted_at IS NULL\n    AND reward_id = $1\n  ORDER BY number ASC\n  LIMIT 1\n  ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "reward_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "number",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 2,
+        "name": "url",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "ec7677aab2896103382fd1ca1476f12fb85e3c0153701767bd1718284769a72d"
+}

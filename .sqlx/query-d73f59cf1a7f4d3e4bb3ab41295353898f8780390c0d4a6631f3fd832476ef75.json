@@ -1,0 +1,100 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      id,\n      issuer_id,\n      category,\n      country_id,\n      name,\n      description,\n      tandc,\n      images,\n      active_from,\n      active_until,\n      valid_from,\n      valid_until,\n      created_at,\n      updated_at\n    FROM reward\n    WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "issuer_id",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "category",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 3,
+        "name": "country_id",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 4,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "description",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "tandc",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "images",
+        "type_info": "TextArray"
+      },
+      {
+        "ordinal": 8,
+        "name": "active_from",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 9,
+        "name": "active_until",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 10,
+        "name": "valid_from",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 11,
+        "name": "valid_until",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 12,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 13,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  "hash": "d73f59cf1a7f4d3e4bb3ab41295353898f8780390c0d4a6631f3fd832476ef75"
+}

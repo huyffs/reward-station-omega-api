@@ -1,0 +1,17 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE voucher\n                    SET valid_from = NOW()\n                    WHERE org_id = $1\n                      AND campaign_id = $2\n                      AND chain_id = $3\n                      AND signer_address = $4",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Int8",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "aec2702a0bdb104c20fed861a5eb3bc4eb4a1e8bd7de4d331987d4185d56649a"
+}

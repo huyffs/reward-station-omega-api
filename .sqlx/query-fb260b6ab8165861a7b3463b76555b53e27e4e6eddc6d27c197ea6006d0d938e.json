@@ -1,0 +1,149 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      r.id,\n      r.issuer_id,\n      r.category,\n      r.country_id,\n      r.name,\n      r.tandc,\n      r.images,\n      r.active_from,\n      r.active_until,\n      r.valid_from,\n      r.valid_until,\n      r.created_at,\n      r.updated_at,\n      pr.org_id,\n      pr.project_id,\n      pr.campaign_id,\n      pr.point,\n      pr.active,\n      pr.max_mint,\n      pr.user_mint,\n      (SELECT COUNT(user_id) as \"coupon_minted!\" FROM coupon WHERE reward_id = r.id),\n      (SELECT COUNT(*) as \"coupon_total!\" FROM coupon WHERE reward_id = r.id)\n    FROM reward r\n    LEFT JOIN campaign__reward pr\n      ON r.id = pr.reward_id\n    WHERE pr.campaign_id = $1\n      AND r.id = $2\n    ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "issuer_id",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "category",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 3,
+        "name": "country_id",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 4,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "tandc",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "images",
+        "type_info": "TextArray"
+      },
+      {
+        "ordinal": 7,
+        "name": "active_from",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 8,
+        "name": "active_until",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 9,
+        "name": "valid_from",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 10,
+        "name": "valid_until",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 11,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 12,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 13,
+        "name": "org_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 14,
+        "name": "project_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 15,
+        "name": "campaign_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 16,
+        "name": "point",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 17,
+        "name": "active",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 18,
+        "name": "max_mint",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 19,
+        "name": "user_mint",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 20,
+        "name": "coupon_minted!",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 21,
+        "name": "coupon_total!",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      null,
+      null
+    ]
+  },
+  "hash": "fb260b6ab8165861a7b3463b76555b53e27e4e6eddc6d27c197ea6006d0d938e"
+}

@@ -1,0 +1,41 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      campaign_id,\n      user_id,\n      SUM(balance)::BIGINT AS \"balance!\",\n      SUM(value)::BIGINT AS \"point!\"\n    FROM voucher\n    WHERE user_id = $1\n      AND campaign_id = $2\n    GROUP BY (campaign_id, user_id)\n    ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "campaign_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "user_id",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "balance!",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 3,
+        "name": "point!",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      null,
+      null
+    ]
+  },
+  "hash": "f8b669fbfbf923ea6a2e22bc7cae66812c72b82bfdf9ff6c382c192c0a58a9e5"
+}

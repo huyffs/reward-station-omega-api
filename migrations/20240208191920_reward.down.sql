@@ -1,0 +1,3 @@
+DROP TABLE project__reward CASCADE;
+DROP TABLE coupon CASCADE;
+DROP TABLE reward CASCADE;

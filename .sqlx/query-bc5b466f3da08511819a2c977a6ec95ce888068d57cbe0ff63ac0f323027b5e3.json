@@ -1,0 +1,168 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      r.id,\n      r.issuer_id,\n      r.category,\n      r.country_id,\n      r.name,\n      r.tandc,\n      r.images,\n      r.active_from,\n      r.active_until,\n      r.valid_from,\n      r.valid_until,\n      r.created_at,\n      r.updated_at,\n      pr.org_id,\n      pr.project_id,\n      pr.campaign_id,\n      pr.point,\n      pr.approved,\n      pr.active,\n      pr.max_mint,\n      pr.user_mint,\n      pr.created_at as link_created_at,\n      pr.updated_at as link_updated_at,\n      (SELECT COUNT(user_id) as \"coupon_minted!\" FROM coupon WHERE reward_id = r.id),\n      (SELECT COUNT(*) as \"coupon_total!\" FROM coupon WHERE reward_id = r.id)\n    FROM reward r\n    LEFT JOIN (\n      SELECT *\n      FROM campaign__reward\n      WHERE org_id = $1\n        AND campaign_id = $2\n    ) pr\n    ON r.id = pr.reward_id\n    WHERE r.id = $3",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "issuer_id",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "category",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 3,
+        "name": "country_id",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 4,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "tandc",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "images",
+        "type_info": "TextArray"
+      },
+      {
+        "ordinal": 7,
+        "name": "active_from",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 8,
+        "name": "active_until",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 9,
+        "name": "valid_from",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 10,
+        "name": "valid_until",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 11,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 12,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 13,
+        "name": "org_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 14,
+        "name": "project_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 15,
+        "name": "campaign_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 16,
+        "name": "point",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 17,
+        "name": "approved",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 18,
+        "name": "active",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 19,
+        "name": "max_mint",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 20,
+        "name": "user_mint",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 21,
+        "name": "link_created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 22,
+        "name": "link_updated_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 23,
+        "name": "coupon_minted!",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 24,
+        "name": "coupon_total!",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      null,
+      null
+    ]
+  },
+  "hash": "bc5b466f3da08511819a2c977a6ec95ce888068d57cbe0ff63ac0f323027b5e3"
+}

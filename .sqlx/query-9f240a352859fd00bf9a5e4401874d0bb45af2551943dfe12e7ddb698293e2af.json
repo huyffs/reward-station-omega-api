@@ -1,0 +1,46 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      project_id,\n      tasks AS \"tasks: Json<Vec<Task>>\",\n      voucher_policy,\n      voucher_expire_at,\n      end_at\n    FROM campaign\n    WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "project_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "tasks: Json<Vec<Task>>",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 2,
+        "name": "voucher_policy",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 3,
+        "name": "voucher_expire_at",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 4,
+        "name": "end_at",
+        "type_info": "Date"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "9f240a352859fd00bf9a5e4401874d0bb45af2551943dfe12e7ddb698293e2af"
+}

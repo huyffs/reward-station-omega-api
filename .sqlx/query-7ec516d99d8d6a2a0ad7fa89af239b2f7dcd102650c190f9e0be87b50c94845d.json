@@ -1,0 +1,29 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO campaign__reward (\n      org_id,\n      project_id,\n      campaign_id,\n      reward_id,\n      point,\n      active,\n      max_mint,\n      user_mint,\n      approved\n    )\n    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, true)\n    RETURNING created_at",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Uuid",
+        "Uuid",
+        "Int8",
+        "Bool",
+        "Int8",
+        "Int8"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "7ec516d99d8d6a2a0ad7fa89af239b2f7dcd102650c190f9e0be87b50c94845d"
+}

@@ -1,0 +1,29 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO engage (\n      org_id,\n      project_id,\n      campaign_id,\n      chain_id,\n      signer_address,\n      user_id,\n      user_name,\n      submissions)\n    VALUES (\n      $1,\n      $2,\n      $3,\n      $4,\n      $5,\n      $6,\n      $7,\n      $8)\n    RETURNING created_at",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Uuid",
+        "Int8",
+        "Text",
+        "Text",
+        "Text",
+        "Jsonb"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "880085e65d433b7afd3f26ac0e84bcb767fb8218ffec5b3e4b2c32663bfb700e"
+}

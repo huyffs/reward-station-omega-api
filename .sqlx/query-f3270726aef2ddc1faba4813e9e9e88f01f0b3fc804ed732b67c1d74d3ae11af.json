@@ -1,0 +1,26 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE voucher SET\n            balance = $5,\n            updated_at = NOW()\n          WHERE campaign_id = $1\n            AND chain_id  = $2\n            AND signer_address  = $3\n            AND task_id  = $4\n          RETURNING updated_at AS \"updated_at!\"\n          ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "updated_at!",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Int8",
+        "Text",
+        "Text",
+        "Int8"
+      ]
+    },
+    "nullable": [
+      true
+    ]
+  },
+  "hash": "f3270726aef2ddc1faba4813e9e9e88f01f0b3fc804ed732b67c1d74d3ae11af"
+}

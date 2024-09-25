@@ -1,0 +1,82 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      id,\n      name,\n      logo,\n      images,\n      website,\n      networks AS \"networks: Json<Networks>\",\n      feature_from,\n      feature_until,\n      created_at,\n      updated_at,\n      description\n    FROM project\n    WHERE id = $1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "logo",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "images",
+        "type_info": "TextArray"
+      },
+      {
+        "ordinal": 4,
+        "name": "website",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "networks: Json<Networks>",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 6,
+        "name": "feature_from",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 7,
+        "name": "feature_until",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 8,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 9,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 10,
+        "name": "description",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      true,
+      true,
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "e3813e97ff7a5942f9d8e340de3c2a39a97feb725ca8286716723c18dc235d41"
+}

@@ -1,0 +1,17 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM engage WHERE org_id = $1 AND campaign_id = $2 AND chain_id = $3 AND signer_address = $4",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Int8",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "f963d0b99304be80f9e72f29769250d0b2d45bba316431dee96951547682fa41"
+}

@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "DELETE FROM project__reward\n    WHERE org_id = $1\n      AND project_id = $2\n      AND reward_id = $3",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "0d2ec94989c9c32b81a09905b911bd16ad1755d30871371908aee8bb82dfce72"
+}

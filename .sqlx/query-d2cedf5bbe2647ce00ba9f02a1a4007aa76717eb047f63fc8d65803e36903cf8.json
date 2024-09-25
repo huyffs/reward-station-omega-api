@@ -1,0 +1,23 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n      SUM(balance) AS \"total!: i64\"\n    FROM voucher\n    WHERE project_id = $1\n      AND user_id = $2\n      AND valid_from <= NOW()\n      AND valid_until >= NOW()\n      ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "total!: i64",
+        "type_info": "Numeric"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text"
+      ]
+    },
+    "nullable": [
+      null
+    ]
+  },
+  "hash": "d2cedf5bbe2647ce00ba9f02a1a4007aa76717eb047f63fc8d65803e36903cf8"
+}

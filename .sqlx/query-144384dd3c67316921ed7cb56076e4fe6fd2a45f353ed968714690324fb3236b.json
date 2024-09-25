@@ -1,0 +1,143 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n    org_id,\n    project_id,\n    id,\n    name,\n    logo,\n    images,\n    description,\n    coupon_code,\n    budget,\n    chain_id,\n    contract_address,\n    condition_info,\n    reward_amount,\n    reward_info,\n    tasks AS \"tasks: Json<Vec<Task>>\",\n    start_at,\n    end_at,\n    voucher_policy,\n    voucher_expire_at,\n  created_at,\n    updated_at\n  FROM campaign\n    WHERE org_id = $1 AND id = $2",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "org_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "project_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 3,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "logo",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "images",
+        "type_info": "TextArray"
+      },
+      {
+        "ordinal": 6,
+        "name": "description",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "coupon_code",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 8,
+        "name": "budget",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 9,
+        "name": "chain_id",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 10,
+        "name": "contract_address",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 11,
+        "name": "condition_info",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 12,
+        "name": "reward_amount",
+        "type_info": "Numeric"
+      },
+      {
+        "ordinal": 13,
+        "name": "reward_info",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 14,
+        "name": "tasks: Json<Vec<Task>>",
+        "type_info": "Jsonb"
+      },
+      {
+        "ordinal": 15,
+        "name": "start_at",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 16,
+        "name": "end_at",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 17,
+        "name": "voucher_policy",
+        "type_info": "Int2"
+      },
+      {
+        "ordinal": 18,
+        "name": "voucher_expire_at",
+        "type_info": "Date"
+      },
+      {
+        "ordinal": 19,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 20,
+        "name": "updated_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      true
+    ]
+  },
+  "hash": "144384dd3c67316921ed7cb56076e4fe6fd2a45f353ed968714690324fb3236b"
+}

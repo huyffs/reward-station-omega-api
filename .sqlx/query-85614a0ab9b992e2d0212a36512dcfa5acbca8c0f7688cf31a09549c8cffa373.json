@@ -1,0 +1,40 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO campaign (\n      org_id,\n      project_id,\n      id,\n      name,\n      logo,\n      images,\n      description,\n      coupon_code,\n      budget,\n      chain_id,\n      contract_address,\n      condition_info,\n      reward_amount,\n      reward_info,\n      tasks,\n      start_at,\n      end_at,\n      voucher_policy,\n      voucher_expire_at\n      )\n    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)\n    RETURNING created_at",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        "Uuid",
+        "Text",
+        "Text",
+        "TextArray",
+        "Text",
+        "Text",
+        "Numeric",
+        "Int8",
+        "Text",
+        "Text",
+        "Numeric",
+        "Text",
+        "Jsonb",
+        "Date",
+        "Date",
+        "Int2",
+        "Date"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "85614a0ab9b992e2d0212a36512dcfa5acbca8c0f7688cf31a09549c8cffa373"
+}
